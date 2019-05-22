@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class TestController {
     @ApiOperation(value="访问控制器")
-    @GetMapping("/hello")
+    @GetMapping("/test/hello")
     public String echo(@RequestParam @ApiParam(name = "str", value = "前端传入的参数") String str) {
         log.info("收到请求：{}", str);
         return str;
