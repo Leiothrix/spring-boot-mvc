@@ -1,17 +1,21 @@
-package com.paprika.spring.boot.mvc.utils;
+package com.paprika.spring.boot.mvc.service.impl;
 
+import com.paprika.spring.boot.mvc.service.DesensitizationService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
 
 /**
  * @author adam
  * @date 2019/5/23
  * PS: You may say that I'm a dreamer.But I'm not the only one.
  */
-public class DesensitizationUtils {
+@Service
+public class DesensitizationImpl implements DesensitizationService{
     /**
      * @param fullName 【姓名】只保留第一个字符，其他隐藏为2个星号，比如：周**
      * @return 脱敏后手机号码
      */
+    @Override
     public String name(String fullName) {
         if (StringUtils.isBlank(fullName)) {
             return "";
@@ -24,6 +28,7 @@ public class DesensitizationUtils {
      * @param identityNumber 【身份证号】保留前三位和后四位，其他隐藏。共计18位或者15位，比如：110**********023X
      * @return 脱敏后身份证号
      */
+    @Override
     public String idCardNum(String identityNumber) {
         if (StringUtils.isBlank(identityNumber)) {
             return "";
@@ -37,6 +42,7 @@ public class DesensitizationUtils {
      * @param sensitiveSize 自定义敏感信息长度
      * @return 脱敏后地址
      */
+    @Override
     public String address(String address, int sensitiveSize) {
         if (StringUtils.isBlank(address)) {
             return "";
@@ -49,6 +55,7 @@ public class DesensitizationUtils {
      * @param mobilePhoneNumber 【手机号码】前三位，后四位，其它隐藏，比如：138****6610
      * @return 脱敏后手机号码
      */
+    @Override
     public String mobilePhone(String mobilePhoneNumber) {
         if (StringUtils.isBlank(mobilePhoneNumber)) {
             return "";
@@ -61,6 +68,7 @@ public class DesensitizationUtils {
      * @param fixedTelephoneNumber 【固定电话】 保留后三位，其他隐藏，比如：****341
      * @return 脱敏后固定电话
      */
+    @Override
     public String fixedPhone(String fixedTelephoneNumber) {
         if (StringUtils.isBlank(fixedTelephoneNumber)) {
             return "";
@@ -72,6 +80,7 @@ public class DesensitizationUtils {
      * @param emailAddress 【电子邮箱】 邮箱前缀仅显示第一个字母，前缀其他隐藏，用星号代替，@及后面的地址显示，比如：h**@163.com
      * @return 脱敏后电子邮箱
      */
+    @Override
     public String email(String emailAddress) {
         if (StringUtils.isBlank(emailAddress)) {
             return "";
@@ -90,6 +99,7 @@ public class DesensitizationUtils {
      * @param bankCardNumber 【银行卡号】保留后四位，比如：************1234
      * @return 脱敏后银行卡号
      */
+    @Override
     public String bankCard(String bankCardNumber) {
         if (StringUtils.isBlank(bankCardNumber)) {
             return "";
@@ -101,6 +111,7 @@ public class DesensitizationUtils {
      * @param password 【密码】全部字符隐藏，且统一长度为6位，比如：******
      * @return 脱敏后密码
      */
+    @Override
     public String password(String password) {
         if (StringUtils.isBlank(password)) {
             return "";

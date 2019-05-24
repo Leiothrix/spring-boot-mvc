@@ -4,7 +4,6 @@ import com.paprika.spring.boot.mvc.api.dto.vo.UserInfoVo;
 import com.paprika.spring.boot.mvc.dao.UserInfoRepo;
 import com.paprika.spring.boot.mvc.domain.UserInfo;
 import com.paprika.spring.boot.mvc.service.UserService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2019/5/23
  * PS: You may say that I'm a dreamer.But I'm not the only one.
  */
-@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 

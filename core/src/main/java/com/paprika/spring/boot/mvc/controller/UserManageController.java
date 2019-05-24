@@ -4,6 +4,7 @@ import com.paprika.spring.boot.mvc.api.SpringBootMvcAPI;
 import com.paprika.spring.boot.mvc.api.dto.SaveUserInfoDto;
 import com.paprika.spring.boot.mvc.api.dto.vo.UserInfoVo;
 import com.paprika.spring.boot.mvc.domain.UserInfo;
+import com.paprika.spring.boot.mvc.service.DesensitizationService;
 import com.paprika.spring.boot.mvc.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,13 +21,16 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @Api(value = SpringBootMvcAPI.SPRING_BOOT_MVC_USER_MANAGE, description = "用户管理接口", tags = "UserManageController")
 @RestController
-public class UserController {
+public class UserManageController {
 
         private UserService uerService;
 
+        private DesensitizationService desensitizationService;
+
         @Autowired
-        public UserController(UserService uerService){
+        public UserManageController(UserService uerService, DesensitizationService desensitizationService){
             this.uerService = uerService;
+            this.desensitizationService = desensitizationService;
         }
 
         @ApiOperation(value="查询用户信息")
